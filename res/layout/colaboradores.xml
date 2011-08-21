@@ -12,7 +12,6 @@
 	android:src="@drawable/android_colaboradores"
   	android:layout_marginTop="10dip"
   	android:layout_alignParentTop="true"
-  	android:background="@color/category_bg_color"
   	android:layout_centerInParent="true"
   	/>
   
