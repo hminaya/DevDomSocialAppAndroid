@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/inicio"
+          android:icon="@drawable/ic_menu_home"
+          android:title="@string/Menu_Home" />
+
+    <item android:id="@+id/Colaboradores"
+          android:icon="@drawable/ic_menu_allfriends"
+          android:title="@string/Menu_Colaboradores" />
+          
+   
+
+</menu>

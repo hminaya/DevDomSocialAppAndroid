@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+       <TextView
+		android:id="@+id/beta"
+		android:text="@string/version"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dip"
+		android:layout_centerInParent="true"
+		android:layout_alignParentTop="true"
+		android:paddingTop="30dip"
+		android:textColor="@color/beta"
+		android:textSize="10pt"
+     />
+  
+  <ImageView
+  android:id="@+id/ImgSplash"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="150dip"
+  android:src="@drawable/logo_horizontal_transp"
+  />
+    <ProgressBar 
+		android:id="@+id/progressBar1" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		 android:layout_below="@+id/separator_text" 
+		 android:layout_centerInParent="true" 
+		 android:layout_marginRight="106dp"
+     />
+     
+     <TextView
+     android:id="@+id/web"
+     android:text="@string/blog"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_above="@+id/twitter"
+ 
+  android:paddingLeft="10dip"
+     />
+     <TextView
+     android:id="@+id/twitter"
+     android:text="@string/twitter"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="10dip"
+  android:layout_alignParentBottom="true"
+  android:paddingBottom="10dip"
+  android:paddingLeft="10dip"
+     />
+    
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:padding="5dip"
+  >
+  
+  <TextView
+	android:id="@+id/label"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Nombre del articulo"
+	android:textColor="@color/category_name_color"
+	android:textStyle="bold"
+  />
+  <TextView
+	android:id="@+id/tutorial_description"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="fasdfas fads fsa fasfasfas fas fsa fas fas f asf asfasffsdf"
+	android:layout_below="@+id/label"
+	android:singleLine="true"
+	android:ellipsize="end"
+  />
+    
+</RelativeLayout>
