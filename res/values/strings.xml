@@ -6,11 +6,16 @@
     <string name="app_desc">Comunidad de Developers Dominicanos {http://developers.do} || {@DevelopersDO}</string>
     <string name="blog">http://developers.do</string>
     <string name="twitter">twitter:@DevelopersDO</string>
-    <string name="version">Beta v0.8.1</string>
+    <string name="version">Beta v0.8.2</string>
     
     <!-- Menu -->
     <string name="Menu_Home">Inicio</string>
     <string name="Menu_Colaboradores">Colaboradores</string>
     <string name="Menu_Salir">Salir</string>
+    
+    <!-- Colaboradores -->
+    <string name="Colaborador_1">Hector Minaya,  @HectorMinaya</string>
+    <string name="Colaborador_2">Roman Jaquez, @DrCoderz</string>
+    <string name="Colaborador_3">Tomás Cruz, @tcruzrod</string>
     
 </resources>

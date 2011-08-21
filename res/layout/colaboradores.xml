@@ -5,11 +5,55 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
   
+<ImageView 
+  	android:id="@+id/icon"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+	android:src="@drawable/android_colaboradores"
+  	android:layout_marginTop="10dip"
+  	android:layout_alignParentTop="true"
+  	android:background="@color/category_bg_color"
+  	android:layout_centerInParent="true"
+  	/>
+  
+<TextView 
+	android:id="@+id/separator_text"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@+id/icon"
+	android:text="Personas que dedicaron de su valioso tiempo y esfuerzo para realizar esta app...."
+	android:layout_marginTop="15dp"
+	android:padding="5dp"
+  	android:textStyle="bold"
+	android:background="@color/separator_bg_color"
+	android:textColor="@color/separator_text_color"
+/>
        <TextView
-		android:id="@+id/Colab"
-		android:text="@string/blog"
+		android:id="@+id/Colaborador_1"
+		android:text="@string/Colaborador_1"
+		android:layout_below="@+id/separator_text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:layout_marginTop="20dip"
+     />
+       <TextView
+		android:id="@+id/Colaborador_2"
+		android:text="@string/Colaborador_2"
+		android:layout_below="@+id/Colaborador_1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:layout_marginTop="15dip"
+     />
+       <TextView
+		android:id="@+id/Colaborador_3"
+		android:text="@string/Colaborador_3"
+		android:layout_below="@+id/Colaborador_2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:layout_marginTop="15dip"
      />
     
 </RelativeLayout>

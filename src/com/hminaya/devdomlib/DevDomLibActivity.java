@@ -93,9 +93,15 @@ public class DevDomLibActivity extends ListActivity {
         switch (item.getItemId()) {
         case R.id.inicio:
             
+        	
+        	
             return true;
         case R.id.Colaboradores:
-            
+
+        	Intent i = new Intent();
+            i.setClass(DevDomLibActivity.this, ColaboradoresActivity.class);
+            startActivity(i);
+
             return true;
         default:
             //return super.onOptionsItemSelected(item);

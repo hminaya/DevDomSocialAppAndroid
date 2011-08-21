@@ -33,14 +33,20 @@ public class CategoryRepository {
 	
 	public List<CategoryInfo> getCategories(){
 
-		if (Mem.categorias == null) {
-			Mem.categorias = getCategoriesFromAPI();
-		}
+		this.LoadInfo();
 		
 		return Mem.categorias;
 	}
 	
-	public List<CategoryInfo> getCategoriesFromAPI(){
+	public void LoadInfo(){
+		
+		if (Mem.categorias == null) {
+			Mem.categorias = getCategoriesFromAPI();
+		}
+		
+	}
+	
+ 	public List<CategoryInfo> getCategoriesFromAPI(){
 	
 			List<CategoryInfo> categories = new ArrayList<CategoryInfo>();
 			
@@ -64,7 +70,7 @@ public class CategoryRepository {
 				    		/// Buscar los tutoriales dentro de cada categoria
 					    	JSONArray ArrTutoriales = e.getJSONArray("tutorials");
 					    	
-					    	for (int j = 0; j < ArrTutoriales.length(); j++) {
+					    	for (int j = 0; j < ArrTutoriales.length()-1; j++) {
 					    		
 					    		JSONObject t = ArrTutoriales.getJSONObject(j);
 					    		
@@ -76,14 +82,14 @@ public class CategoryRepository {
 					    	}
 					    	
 						} catch (JSONException ex2) {
-							Log.e("log_tag_getCategories_tuts", "Error parsing data: " + ex2.toString() + " ||| " + e.toString() ) ;
+							Log.e("log_tag_getCategories_tuts", "Error parsing data: " + ex2.toString()) ;
 						}
 				    	
 				    	/// Agregar todas las categorias
 				    	categories.add(catInfo);
 				}
 		       }catch(JSONException ex) {
-		       	 Log.e("log_tag_getCategories", "Error parsing data: " + ex.toString());
+		       	 Log.e("DevDom_CategoryRepository_getCategories", "Error parsing data: " + ex.toString());
 		       }
 	
 			return categories;
@@ -106,7 +112,7 @@ public class CategoryRepository {
 				is = entity.getContent();
 	
 			}catch(Exception e){
-				Log.e("log_tag_JSONObject", "Error in http connection "+e.toString());
+				Log.e("DevDom_CategoryRepository_JSONObject", "Error in http connection "+e.toString());
 			}
 	
 			//convert response to string
@@ -120,14 +126,14 @@ public class CategoryRepository {
 				is.close();
 				result=sb.toString();
 			}catch(Exception e){
-				Log.e("log_tag_JSONObject", "Error converting result "+e.toString());
+				Log.e("DevDom_CategoryRepository_JSONObject", "Error converting result "+e.toString());
 			}
 	
 			//try parse the string to a JSON object
 			try{
 		        	jArray = new JSONObject(result);
 			}catch(JSONException e){
-				Log.e("log_tag_JSONObject", "Error parsing data " + e.toString() + " ||| " + result);
+				Log.e("DevDom_CategoryRepository_JSONObject", "Error parsing data " + e.toString() + " ||| " + result);
 			}
 	
 			return jArray;
@@ -155,7 +161,7 @@ public class CategoryRepository {
 
              view.setImageBitmap(bmImg);
         } catch (IOException e) {
-             e.printStackTrace();
+             Log.e("DevDom_CategoryRepository_downloadFile", "Error: " + e.toString());
         }
    }
 }

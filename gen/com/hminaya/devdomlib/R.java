@@ -18,34 +18,38 @@ public final class R {
         public static final int separator_text_color=0x7f040001;
     }
     public static final class drawable {
-        public static final int devsdo_logo_trans_square=0x7f020000;
-        public static final int devsdo_logo_trans_square_small=0x7f020001;
-        public static final int ic_menu_allfriends=0x7f020002;
-        public static final int ic_menu_home=0x7f020003;
-        public static final int ic_menu_stop=0x7f020004;
-        public static final int icon=0x7f020005;
-        public static final int loading_develop=0x7f020006;
-        public static final int logo_horizontal=0x7f020007;
-        public static final int logo_horizontal_small_transp=0x7f020008;
-        public static final int logo_horizontal_transp=0x7f020009;
-        public static final int verde=0x7f02000a;
+        public static final int android_colaboradores=0x7f020000;
+        public static final int devsdo_logo_trans_square=0x7f020001;
+        public static final int devsdo_logo_trans_square_small=0x7f020002;
+        public static final int ic_contact_picture=0x7f020003;
+        public static final int ic_menu_allfriends=0x7f020004;
+        public static final int ic_menu_home=0x7f020005;
+        public static final int ic_menu_stop=0x7f020006;
+        public static final int icon=0x7f020007;
+        public static final int loading_develop=0x7f020008;
+        public static final int logo_horizontal=0x7f020009;
+        public static final int logo_horizontal_small_transp=0x7f02000a;
+        public static final int logo_horizontal_transp=0x7f02000b;
+        public static final int verde=0x7f02000c;
     }
     public static final class id {
-        public static final int Colab=0x7f070003;
-        public static final int Colaboradores=0x7f07000e;
-        public static final int ImgSplash=0x7f070008;
-        public static final int beta=0x7f070007;
+        public static final int Colaborador_1=0x7f070004;
+        public static final int Colaborador_2=0x7f070005;
+        public static final int Colaborador_3=0x7f070006;
+        public static final int Colaboradores=0x7f070010;
+        public static final int ImgSplash=0x7f07000a;
+        public static final int beta=0x7f070009;
         public static final int details_line=0x7f070001;
-        public static final int header_image=0x7f070004;
+        public static final int header_image=0x7f070007;
         public static final int icon=0x7f070000;
-        public static final int inicio=0x7f07000d;
+        public static final int inicio=0x7f07000f;
         public static final int label=0x7f070002;
-        public static final int progressBar1=0x7f070009;
-        public static final int selection=0x7f070006;
-        public static final int separator_text=0x7f070005;
-        public static final int tutorial_description=0x7f07000c;
-        public static final int twitter=0x7f07000b;
-        public static final int web=0x7f07000a;
+        public static final int progressBar1=0x7f07000b;
+        public static final int selection=0x7f070008;
+        public static final int separator_text=0x7f070003;
+        public static final int tutorial_description=0x7f07000e;
+        public static final int twitter=0x7f07000d;
+        public static final int web=0x7f07000c;
     }
     public static final class layout {
         public static final int category_row=0x7f030000;
@@ -59,6 +63,11 @@ public final class R {
         public static final int menu=0x7f060000;
     }
     public static final class string {
+        /**  Colaboradores 
+         */
+        public static final int Colaborador_1=0x7f050009;
+        public static final int Colaborador_2=0x7f05000a;
+        public static final int Colaborador_3=0x7f05000b;
         public static final int Menu_Colaboradores=0x7f050007;
         /**  Menu 
          */

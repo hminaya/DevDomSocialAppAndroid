@@ -10,6 +10,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -90,5 +93,38 @@ public class TutorialListActivity extends ListActivity  {
     	
     	
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+        case R.id.inicio:
+            
+        	Intent iHome = new Intent();
+        	iHome.setClass(TutorialListActivity.this, DevDomLibActivity.class);
+            startActivity(iHome); 
+            finish();
+        	
+            return true;
+        case R.id.Colaboradores:
+
+        	Intent i = new Intent();
+            i.setClass(TutorialListActivity.this, ColaboradoresActivity.class);
+            startActivity(i);
+
+            return true;
+        default:
+            //return super.onOptionsItemSelected(item);
+        	return true;
+        }
+    }
+
 	
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      android:versionName="0.8.1" android:versionCode="2" package="com.hminaya.devdomlib">
+      android:versionName="0.8.2" android:versionCode="2" package="com.hminaya.devdomlib">
     <uses-sdk android:minSdkVersion="7" />
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
@@ -20,6 +20,8 @@
         </activity>
         
 		<activity android:name=".TutorialListActivity"></activity>
+		<activity android:name=".ColaboradoresActivity"></activity>
+		
 		<activity android:name=".SplashActivity">
 		
 		   <intent-filter>
