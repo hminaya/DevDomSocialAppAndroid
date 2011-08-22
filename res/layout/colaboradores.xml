@@ -54,5 +54,16 @@
 		android:layout_centerInParent="true"
 		android:layout_marginTop="15dip"
      />
+       <TextView
+		android:id="@+id/beta"
+		android:text="@string/version"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dip"
+		android:layout_centerInParent="true"
+		android:layout_alignParentBottom="true"
+		android:textColor="@color/beta"
+		android:textSize="8pt"
+     />
     
 </RelativeLayout>

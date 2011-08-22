@@ -38,14 +38,14 @@ public final class R {
         public static final int Colaborador_3=0x7f070006;
         public static final int Colaboradores=0x7f070010;
         public static final int ImgSplash=0x7f07000a;
-        public static final int beta=0x7f070009;
+        public static final int beta=0x7f070007;
         public static final int details_line=0x7f070001;
-        public static final int header_image=0x7f070007;
+        public static final int header_image=0x7f070008;
         public static final int icon=0x7f070000;
         public static final int inicio=0x7f07000f;
         public static final int label=0x7f070002;
         public static final int progressBar1=0x7f07000b;
-        public static final int selection=0x7f070008;
+        public static final int selection=0x7f070009;
         public static final int separator_text=0x7f070003;
         public static final int tutorial_description=0x7f07000e;
         public static final int twitter=0x7f07000d;

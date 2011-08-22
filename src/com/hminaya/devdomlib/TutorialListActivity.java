@@ -15,8 +15,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,7 +51,17 @@ public class TutorialListActivity extends ListActivity  {
 	    TextView tv = (TextView)findViewById(R.id.label);
 	    tv.setText(categoria.getCategoryName());
 	    
-	    setListAdapter(new TutorialListAdapter());	
+	    setListAdapter(new TutorialListAdapter());
+	    
+	    ListView lv = getListView();
+
+	    lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+	        //@Override
+	        public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id) {
+	            return onLongListItemClick(v,pos,id);
+	        }
+	    });
+
 		
 		} catch (Exception e) {
 			Toast.makeText(TutorialListActivity.this, e.toString(), Toast.LENGTH_LONG).show();
@@ -69,6 +81,21 @@ public class TutorialListActivity extends ListActivity  {
 			Toast.makeText(TutorialListActivity.this, e.toString(), Toast.LENGTH_LONG).show();
 		}
     }
+
+    protected boolean onLongListItemClick(View v, int pos, long id) {
+        
+    	String texto = this.categoria.getTutorials().get(pos).getName() + " | " + 
+    			this.categoria.getTutorials().get(pos).getTutorialUrl();
+    	
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_SUBJECT, "#DevDom - ");
+        i.putExtra(Intent.EXTRA_TEXT, texto);
+        startActivity(Intent.createChooser(i, "Compartir tutorial"));
+        
+        return true;
+    }
+
     
     class TutorialListAdapter extends ArrayAdapter<TutorialInfo>{
     	

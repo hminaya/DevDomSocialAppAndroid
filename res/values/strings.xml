@@ -6,7 +6,7 @@
     <string name="app_desc">Comunidad de Developers Dominicanos {http://developers.do} || {@DevelopersDO}</string>
     <string name="blog">http://developers.do</string>
     <string name="twitter">twitter:@DevelopersDO</string>
-    <string name="version">Beta v0.8.2</string>
+    <string name="version">Beta v0.8.3</string>
     
     <!-- Menu -->
     <string name="Menu_Home">Inicio</string>
