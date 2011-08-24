@@ -3,6 +3,8 @@ package com.hminaya.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.graphics.Bitmap;
+
 public class CategoryInfo {
 
 	public CategoryInfo(int id, String categoryName){
@@ -19,8 +21,16 @@ public class CategoryInfo {
 	private List<TutorialInfo> tutorials;
 	private String description;
 	private int imageResourceId;
-	
+	private Bitmap image;
 	private String imageUrl;
+	
+	public void setImage(Bitmap image){
+		this.image = image;
+	}
+	
+	public Bitmap getImage(){
+		return this.image;
+	}
 	
 	public void setImageUrl(String imageUrl){
 		this.imageUrl = imageUrl;

@@ -30,7 +30,7 @@ public class SplashActivity extends Activity {
         	try {
         		
             	Intent i = new Intent();
-                i.setClass(SplashActivity.this, DevDomLibActivity.class);
+                i.setClass(SplashActivity.this, HomeActivity.class);
                 startActivity(i);
                 finish();
                 

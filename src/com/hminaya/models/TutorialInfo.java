@@ -37,5 +37,20 @@ public class TutorialInfo {
 	public String getName(){
 		return this.name;
 	}
+	
+	public void setImageUrl(String imageUrl){
+		this.imageUrl = imageUrl;
+	}
+	
+	public String getImageUrl(){
+		return this.imageUrl;
+	}
+	
+	public void setId(int id){
+		this.id = id;
+	}
+	public int getId(){
+		return this.id;
+	}
 
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:padding="6dip"
+  android:gravity="center_horizontal"
+  android:orientation="vertical"
+  >
+  
+  <ImageView
+  	android:id="@+id/icon"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+  	android:src="@drawable/devsdo_logo_trans_square_small"
+ />
+  <TextView
+  	android:id="@+id/opcion"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+  	android:text="Option"
+  />
+    
+</LinearLayout>

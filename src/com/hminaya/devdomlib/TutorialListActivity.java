@@ -135,7 +135,7 @@ public class TutorialListActivity extends ListActivity  {
         case R.id.inicio:
             
         	Intent iHome = new Intent();
-        	iHome.setClass(TutorialListActivity.this, DevDomLibActivity.class);
+        	iHome.setClass(TutorialListActivity.this, HomeActivity.class);
             startActivity(iHome); 
             finish();
         	

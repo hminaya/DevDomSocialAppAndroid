@@ -59,24 +59,26 @@ public class DevDomLibActivity extends ListActivity {
     	@Override
     	public View getView(int position, View convertView, ViewGroup parent){
     		
+    		if(convertView == null)
+    		{
     			LayoutInflater inflater = getLayoutInflater();
-    			View row = inflater.inflate(R.layout.category_row, parent, false);
-    			
-    			// El label
-    			TextView label = (TextView)row.findViewById(R.id.label);
-    			label.setText(categories.get(position).getCategoryName());
-    			
-    			// La imagen
-    			ImageView icon = (ImageView)row.findViewById(R.id.icon);
-    			//icon.setImageResource(categories.get(position).getImageResourceId());
-    			CategoryRepository.downloadFile(categories.get(position).getImageUrl(), icon);
-    			
-    			// La descripcion
-    			TextView detalle = (TextView)row.findViewById(R.id.details_line);
-    			String description = categories.get(position).getDescription();
-    			detalle.setText(description == null ? "" : description);
-    			
-    			return (row);
+    			convertView = inflater.inflate(R.layout.category_row, parent, false);
+    		}
+			
+			// El label
+			TextView label = (TextView)convertView.findViewById(R.id.label);
+			label.setText(categories.get(position).getCategoryName());
+			
+			// La imagen
+			ImageView icon = (ImageView)convertView.findViewById(R.id.icon);
+			icon.setImageBitmap(categories.get(position).getImage());
+			
+			// La descripcion
+			TextView detalle = (TextView)convertView.findViewById(R.id.details_line);
+			String description = categories.get(position).getDescription();
+			detalle.setText(description == null ? "" : description);
+    		
+    		return convertView;
     	}
     }
     
@@ -93,7 +95,10 @@ public class DevDomLibActivity extends ListActivity {
         switch (item.getItemId()) {
         case R.id.inicio:
             
-        	
+        	Intent iHome = new Intent();
+        	iHome.setClass(DevDomLibActivity.this, HomeActivity.class);
+            startActivity(iHome); 	
+            finish();
         	
             return true;
         case R.id.Colaboradores:

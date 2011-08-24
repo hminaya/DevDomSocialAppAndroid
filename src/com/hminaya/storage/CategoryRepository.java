@@ -65,12 +65,13 @@ public class CategoryRepository {
 				    	catInfo.setDescription(e.getString("description"));
 				    	catInfo.setImageResourceId(R.drawable.verde);
 				    	catInfo.setImageUrl(e.getString("imageUrl"));
+				    	catInfo.setImage(CategoryRepository.downloadFile(catInfo.getImageUrl()));
 				    	
 				    	try {
 				    		/// Buscar los tutoriales dentro de cada categoria
 					    	JSONArray ArrTutoriales = e.getJSONArray("tutorials");
 					    	
-					    	for (int j = 0; j < ArrTutoriales.length()-1; j++) {
+					    	for (int j = 0; j < ArrTutoriales.length(); j++) {
 					    		
 					    		JSONObject t = ArrTutoriales.getJSONObject(j);
 					    		
@@ -164,4 +165,29 @@ public class CategoryRepository {
              Log.e("DevDom_CategoryRepository_downloadFile", "Error: " + e.toString());
         }
    }
+	public static Bitmap downloadFile(String fileUrl){
+		URL myFileUrl = null;          
+        try {
+             myFileUrl= new URL(fileUrl);
+        } catch (MalformedURLException e) {
+             e.printStackTrace();
+        }
+        
+        try {
+             HttpURLConnection conn= (HttpURLConnection)myFileUrl.openConnection();
+             
+             conn.setDoInput(true);
+             conn.connect();
+             
+             //int length = conn.getContentLength();
+             InputStream is = conn.getInputStream();
+             
+             Bitmap bmImg = BitmapFactory.decodeStream(is);
+
+             return bmImg;
+        } catch (IOException e) {
+             Log.e("DevDom_CategoryRepository_downloadFile", "Error: " + e.toString());
+        }
+		return null;
+	}
 }
