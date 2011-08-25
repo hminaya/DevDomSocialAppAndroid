@@ -18,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 	
@@ -52,16 +53,17 @@ public class HomeActivity extends Activity {
 	                
 					break;
 				default:
+				
+					Toast.makeText(HomeActivity.this, R.string.ErrBeta, Toast.LENGTH_SHORT).show();
 					break;
 				}
-                
             }
         });
-
     }
     
     public class ImageAdapter extends BaseAdapter {
-        private Context mContext;
+        @SuppressWarnings("unused")
+		private Context mContext;
 
         public ImageAdapter(Context c) {
             mContext = c;
@@ -72,11 +74,11 @@ public class HomeActivity extends Activity {
         }
 
         public Object getItem(int position) {
-            return null;
+            return opciones.get(position);
         }
 
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         // create a new ImageView for each item referenced by the Adapter
@@ -100,11 +102,6 @@ public class HomeActivity extends Activity {
         	return myView;
 
         }
-
-        // references to our images
-        private Integer[] mThumbIds = {
-                R.drawable.icon_news,  R.drawable.icon_calendar
-        };
     }
     
 }

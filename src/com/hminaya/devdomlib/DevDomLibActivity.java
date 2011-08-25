@@ -64,18 +64,17 @@ public class DevDomLibActivity extends ListActivity {
     			LayoutInflater inflater = getLayoutInflater();
     			convertView = inflater.inflate(R.layout.category_row, parent, false);
     		}
+    		
+    		CategoryInfo catInfo = categories.get(position);
 			
-			// El label
 			TextView label = (TextView)convertView.findViewById(R.id.label);
-			label.setText(categories.get(position).getCategoryName());
+			label.setText(catInfo.getCategoryName());
 			
-			// La imagen
 			ImageView icon = (ImageView)convertView.findViewById(R.id.icon);
-			icon.setImageBitmap(categories.get(position).getImage());
+			icon.setImageBitmap(catInfo.getImage());
 			
-			// La descripcion
 			TextView detalle = (TextView)convertView.findViewById(R.id.details_line);
-			String description = categories.get(position).getDescription();
+			String description = catInfo.getDescription();
 			detalle.setText(description == null ? "" : description);
     		
     		return convertView;
@@ -91,25 +90,27 @@ public class DevDomLibActivity extends ListActivity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
+    	
+    	Intent i = new Intent();
+    	
         switch (item.getItemId()) {
         case R.id.inicio:
-            
-        	Intent iHome = new Intent();
-        	iHome.setClass(DevDomLibActivity.this, HomeActivity.class);
-            startActivity(iHome); 	
+
+        	// No es necesario lanzar el Activity, ya que este viene del Home y si le dan
+        	// a back vuelve al Home
+        	//i.setClass(DevDomLibActivity.this, HomeActivity.class);
+            //startActivity(i); 	
             finish();
         	
             return true;
         case R.id.Colaboradores:
 
-        	Intent i = new Intent();
             i.setClass(DevDomLibActivity.this, ColaboradoresActivity.class);
-            startActivity(i);
+            
 
             return true;
         default:
-            //return super.onOptionsItemSelected(item);
+
         	return true;
         }
     }

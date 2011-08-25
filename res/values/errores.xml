@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="ErrConnInternet">Debe estar conectado al Internet para utilizar esta App, favor verficar su conexion e intentar de nuevo.</string>
+        <string name="ErrBeta">Aun estamos en Beta :), no todo esta listo.</string>
+        <string name="ErrGeneral">Ha ocurrido un error, por favor cierre el App y vuelva a abrirlo.</string>
+</resources>

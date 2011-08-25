@@ -118,7 +118,7 @@ public class CategoryRepository {
 	
 			//convert response to string
 			try{
-				BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+				BufferedReader reader = new BufferedReader(new InputStreamReader(is,"UTF-8"),8);
 				StringBuilder sb = new StringBuilder();
 				String line = null;
 				while ((line = reader.readLine()) != null) {

@@ -35,7 +35,7 @@ public class TutorialListActivity extends ListActivity  {
 	    setContentView(R.layout.tutorial_main);
     	
     	if (Mem.categoria == null) {
-    		Toast.makeText(TutorialListActivity.this, "Ha ocurrido un error, por favor cierre el App y vuelva a abrirlo", Toast.LENGTH_LONG).show();
+    		Toast.makeText(TutorialListActivity.this, R.string.ErrGeneral, Toast.LENGTH_LONG).show();
     		
     		Mem.categorias = new CategoryRepository().getCategories();
     		Mem.categoria = Mem.categorias.get(1);
@@ -106,16 +106,21 @@ public class TutorialListActivity extends ListActivity  {
     	@Override
     	public View getView(int position, View convertView, ViewGroup parent){
     		
-    		LayoutInflater inflater = getLayoutInflater();
-    		View row = inflater.inflate(R.layout.tutorial_row, parent, false);
+    		if(convertView == null)
+    		{
+    			LayoutInflater inflater = getLayoutInflater();
+    			convertView = inflater.inflate(R.layout.tutorial_row, parent, false);
+    		}
     		
-    		TextView label=(TextView)row.findViewById(R.id.label);
-    		label.setText(categoria.getTutorials().get(position).getName());
+    		TutorialInfo tutInfo = categoria.getTutorials().get(position);
     		
-    		TextView description=(TextView)row.findViewById(R.id.tutorial_description);
-    		description.setText(categoria.getTutorials().get(position).getDescription());
+    		TextView label=(TextView)convertView.findViewById(R.id.label);
+    		label.setText(tutInfo.getName());
     		
-    		return(row);
+    		TextView description=(TextView)convertView.findViewById(R.id.tutorial_description);
+    		description.setText(tutInfo.getDescription());
+    		
+    		return convertView;
     	}
     	
     	
@@ -130,25 +135,25 @@ public class TutorialListActivity extends ListActivity  {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
+    	
+    	Intent i = new Intent();
+    	
         switch (item.getItemId()) {
         case R.id.inicio:
             
-        	Intent iHome = new Intent();
-        	iHome.setClass(TutorialListActivity.this, HomeActivity.class);
-            startActivity(iHome); 
+        	i.setClass(TutorialListActivity.this, HomeActivity.class);
+            startActivity(i); 
             finish();
         	
             return true;
         case R.id.Colaboradores:
 
-        	Intent i = new Intent();
             i.setClass(TutorialListActivity.this, ColaboradoresActivity.class);
             startActivity(i);
 
             return true;
         default:
-            //return super.onOptionsItemSelected(item);
+
         	return true;
         }
     }
