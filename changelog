@@ -1,0 +1,26 @@
+- Beta v0.9.0 --
+* Se arreglo el encoding para los acentos
+* Se mejoro muchisimo el performance para las listas, no mas lag
+* Nuevo Home screen al inicio de las app, muestra: Tutoriales, Eventos, Empleos, Noticias, etc..
+* Verifica si se tiene conexion a Internet cuando incia el app
+* Refactoring de mucho codigo
+
+- Beta v0.8.4 --
+* Arreglamos un maco donde no se mostraban todos los tutoriales
+
+- Beta v0.8.3 --
+* Nuevo menu de "Share" al presionar un tutorial
+* Mejoras de rendimiento
+* Correcciones en la pantalla de colaboradores
+
+- Beta v0.8.2 --
+* Se agrego un menu para el Home & Colaboradores.
+* Se agrego un Async task para cargar el API de JSON mientras se muestra el Splash Screen
+
+- Beta v0.8.1 --
+* Algunos cambios en el código
+
+
+- Beta v0.8.0 --
+* Primer Beta!. 
+* Publicado en el MarketPlace de Android
