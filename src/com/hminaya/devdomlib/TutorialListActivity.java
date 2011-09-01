@@ -1,9 +1,9 @@
 package com.hminaya.devdomlib;
 
-import com.hminaya.models.CategoryInfo;
-import com.hminaya.models.Mem;
-import com.hminaya.models.TutorialInfo;
+import com.hminaya.models.Category;
+import com.hminaya.models.Tutorial;
 import com.hminaya.storage.CategoryRepository;
+import com.hminaya.storage.MemRepository;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 public class TutorialListActivity extends ListActivity  {
 
-	private CategoryInfo categoria;
+	private Category categoria;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,19 +34,18 @@ public class TutorialListActivity extends ListActivity  {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.tutorial_main);
     	
-    	if (Mem.categoria == null) {
+    	if (MemRepository.categoria == null) {
     		Toast.makeText(TutorialListActivity.this, R.string.ErrGeneral, Toast.LENGTH_LONG).show();
     		
-    		Mem.categorias = new CategoryRepository().getCategories();
-    		Mem.categoria = Mem.categorias.get(1);
+    		MemRepository.categorias = new CategoryRepository().getCategories();
+    		MemRepository.categoria = MemRepository.categorias.get(1);
     		
 		}
 	            
-	    categoria = Mem.categoria;
+	    categoria = MemRepository.categoria;
 	    
 	    ImageView icon = (ImageView)findViewById(R.id.icon);
-	    icon.setImageResource(categoria.getImageResourceId());
-	    CategoryRepository.downloadFile(categoria.getImageUrl(), icon);
+	    icon.setImageBitmap(categoria.getImage());
 	    
 	    TextView tv = (TextView)findViewById(R.id.label);
 	    tv.setText(categoria.getCategoryName());
@@ -97,7 +96,7 @@ public class TutorialListActivity extends ListActivity  {
     }
 
     
-    class TutorialListAdapter extends ArrayAdapter<TutorialInfo>{
+    class TutorialListAdapter extends ArrayAdapter<Tutorial>{
     	
     	TutorialListAdapter(){
     		super(TutorialListActivity.this, R.layout.tutorial_row, R.id.label, categoria.getTutorials());
@@ -112,7 +111,7 @@ public class TutorialListActivity extends ListActivity  {
     			convertView = inflater.inflate(R.layout.tutorial_row, parent, false);
     		}
     		
-    		TutorialInfo tutInfo = categoria.getTutorials().get(position);
+    		Tutorial tutInfo = categoria.getTutorials().get(position);
     		
     		TextView label=(TextView)convertView.findViewById(R.id.label);
     		label.setText(tutInfo.getName());

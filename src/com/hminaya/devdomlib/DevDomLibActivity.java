@@ -2,9 +2,9 @@ package com.hminaya.devdomlib;
 
 import java.util.List;
 
-import com.hminaya.models.CategoryInfo;
-import com.hminaya.models.Mem;
+import com.hminaya.models.Category;
 import com.hminaya.storage.CategoryRepository;
+import com.hminaya.storage.MemRepository;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 public class DevDomLibActivity extends ListActivity {
     
-	List<CategoryInfo> categories;
+	List<Category> categories;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class DevDomLibActivity extends ListActivity {
     @Override
     protected void onListItemClick(android.widget.ListView l, View v, int position, long id){
     	    	
-    	Mem.categoria = categories.get(position);
+    	MemRepository.categoria = categories.get(position);
     	
     	try {
         	Intent i = new Intent(DevDomLibActivity.this, TutorialListActivity.class);	
@@ -51,7 +51,7 @@ public class DevDomLibActivity extends ListActivity {
 
     };
     
-    class CategoryAdapter extends ArrayAdapter<CategoryInfo> {
+    class CategoryAdapter extends ArrayAdapter<Category> {
     	CategoryAdapter(){
     		super(DevDomLibActivity.this, R.layout.category_row, R.id.label, categories);
     	}
@@ -65,7 +65,7 @@ public class DevDomLibActivity extends ListActivity {
     			convertView = inflater.inflate(R.layout.category_row, parent, false);
     		}
     		
-    		CategoryInfo catInfo = categories.get(position);
+    		Category catInfo = categories.get(position);
 			
 			TextView label = (TextView)convertView.findViewById(R.id.label);
 			label.setText(catInfo.getCategoryName());

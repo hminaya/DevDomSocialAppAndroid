@@ -1,6 +1,6 @@
 package com.hminaya.devdomlib;
 
-import com.hminaya.storage.CategoryRepository;
+import com.hminaya.storage.MemRepository;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -71,9 +71,13 @@ public class SplashActivity extends Activity {
 
     	@Override
     	protected Long doInBackground(String... arg0) {
-
-    		CategoryRepository Repcat = new CategoryRepository();
-    		Repcat.LoadInfo();
+    		
+    		try {
+        		MemRepository.getInfoFromAPI();
+			} catch (Exception e) {
+    			Log.e("DevDom_DownloadInfo_doInBackground", "Error: " + e.toString() ) ;
+    			finish();
+			}
     		
     		return (long) 0;
     	}

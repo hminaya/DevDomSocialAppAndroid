@@ -1,3 +1,8 @@
+- Beta v0.9.1 --
+* Se quito el fondo blanco en la seccion de categorias
+* Se agregaron los placeholders para las secciones que faltan en el JSON, aun no tienen nada
+* Se habilito la pantalla de "Comunidades"
+
 - Beta v0.9.0 --
 * Se arreglo el encoding para los acentos
 * Se mejoro muchisimo el performance para las listas, no mas lag

@@ -2,7 +2,7 @@ package com.hminaya.devdomlib;
 
 import java.util.List;
 
-import com.hminaya.models.OpcionInfo;
+import com.hminaya.models.Option;
 import com.hminaya.storage.OptionRepository;
 
 import android.app.Activity;
@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 	
-	List<OpcionInfo> opciones;
+	List<Option> opciones;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,12 @@ public class HomeActivity extends Activity {
 				case 4:
 	                
 					i.setClass(HomeActivity.this, ColaboradoresActivity.class);					
+	                startActivity(i);
+	                
+					break;
+				case 5:
+	                
+					i.setClass(HomeActivity.this, CommunityActivity.class);					
 	                startActivity(i);
 	                
 					break;
