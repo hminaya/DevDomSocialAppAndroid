@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import com.hminaya.devdomlib.R;
 import com.hminaya.models.Category;
 import com.hminaya.models.Community;
+import com.hminaya.models.Event;
 import com.hminaya.models.Option;
 import com.hminaya.models.Tutorial;
 
@@ -40,6 +41,9 @@ public class MemRepository {
 	
 	public static Community comunidad;
 	public static List<Community> comunidades;
+	
+	public static Event evento;
+	public static List<Event> eventos;
 	
 	
 	public static void getInfoFromAPI(){
@@ -82,6 +86,31 @@ public class MemRepository {
        	 Log.e("DevDom_MemRepository_getInfoFromAPI_communities", ex.toString());
        }
 		MemRepository.comunidades = communities;
+		
+		/// Cargar los eventos
+		List<Event> events = new ArrayList<Event>();
+		try{
+			JSONArray eventos = json.getJSONArray("eventos");
+			
+		    for(int i=0;i < eventos.length();i++){						
+				
+		    	JSONObject e = eventos.getJSONObject(i);
+		    	
+		    	Event evInfo = new Event();
+		    	
+		    	evInfo.setName(e.getString("name"));
+		    	evInfo.setWhat(e.getString("what"));
+		    	evInfo.setWhen(e.getString("when"));
+		    	evInfo.setWhere(e.getString("where"));
+		    	evInfo.setUrl(e.getString("url"));
+		    	
+		    	events.add(evInfo);
+		}
+		}
+		catch(Exception ex){
+	       	 Log.e("DevDom_MemRepository_getInfoFromAPI_events", ex.toString());
+		}
+		MemRepository.eventos = events;
 		
 		/// Cargar las Categorias
 		List<Category> categories = new ArrayList<Category>();

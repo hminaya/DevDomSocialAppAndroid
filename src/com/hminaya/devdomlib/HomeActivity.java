@@ -46,6 +46,13 @@ public class HomeActivity extends Activity {
 	                startActivity(i);
 	                
 	                break;
+	                
+				case 1:
+					i.setClass(HomeActivity.this, EventActivity.class);					
+	                startActivity(i);
+	                
+	                break;
+					
 				case 4:
 	                
 					i.setClass(HomeActivity.this, ColaboradoresActivity.class);					
@@ -54,8 +61,8 @@ public class HomeActivity extends Activity {
 					break;
 				case 5:
 	                
-					//i.setClass(HomeActivity.this, CommunityActivity.class);					
-	                //startActivity(i);
+					i.setClass(HomeActivity.this, CommunityActivity.class);					
+	                startActivity(i);
 	                
 					break;
 				default:
