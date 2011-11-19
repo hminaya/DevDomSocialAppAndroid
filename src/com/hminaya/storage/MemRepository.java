@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -29,6 +30,7 @@ import com.hminaya.models.Category;
 import com.hminaya.models.Community;
 import com.hminaya.models.Event;
 import com.hminaya.models.Option;
+import com.hminaya.models.Podcast;
 import com.hminaya.models.Tutorial;
 
 public class MemRepository {
@@ -45,11 +47,16 @@ public class MemRepository {
 	public static Event evento;
 	public static List<Event> eventos;
 	
+	public static Podcast podcast;
+	public static List<Podcast> podcasts;
+	
 	
 	public static void getInfoFromAPI(){
 		
 		/// Buscar el JSON
-		JSONObject json = MemRepository.getJSONfromURL("http://js.developers.do/js/devdom.js");
+		Date date = new Date();
+		
+		JSONObject json = MemRepository.getJSONfromURL("http://js.developers.do/js/devdom.js?id=" + date.getSeconds());
 
 		/// Cargar las opciones
 		List<Option> opciones = new ArrayList<Option>();
@@ -58,8 +65,9 @@ public class MemRepository {
 		opciones.add(new Option("Eventos", R.drawable.icon_calendar));
 		opciones.add(new Option("Noticias", R.drawable.icon_news));
 		opciones.add(new Option("Empleos", R.drawable.icon_empleos));
-		opciones.add(new Option("Colaboradores", R.drawable.icon_colaboradores));
+		opciones.add(new Option("Podcasts", R.drawable.icon_podcast));
 		opciones.add(new Option("Comunidades", R.drawable.icon_community));
+		opciones.add(new Option("Colaboradores", R.drawable.icon_colaboradores));
 		
 		MemRepository.opciones = opciones;
 		
@@ -86,6 +94,35 @@ public class MemRepository {
        	 Log.e("DevDom_MemRepository_getInfoFromAPI_communities", ex.toString());
        }
 		MemRepository.comunidades = communities;
+		
+		/// Cargar los Podcasts
+		List<Podcast> podcasts = new ArrayList<Podcast>();
+		try{
+			
+			JSONArray audios = json.getJSONArray("podcasts");
+			
+			for(int i=0;i < audios.length();i++){
+				
+				JSONObject e = audios.getJSONObject(i);
+				
+				Podcast podInfo = new Podcast();
+				
+				podInfo.setName(e.getString("name"));
+				podInfo.setDescription(e.getString("description"));
+				podInfo.setTwitter(e.getString("twitter"));
+				podInfo.setLogoUrl(e.getString("logo"));
+				podInfo.setUrl(e.getString("url"));
+				podInfo.setLogo(MemRepository.downloadFile(podInfo.getLogoUrl()));
+				
+				podcasts.add(podInfo);
+
+			}
+				
+		}
+		catch(Exception ex){
+			Log.e("DevDom_MemRepository_getInfoFromAPI_podcasts", ex.toString());
+		}
+		MemRepository.podcasts = podcasts;
 		
 		/// Cargar los eventos
 		List<Event> events = new ArrayList<Event>();

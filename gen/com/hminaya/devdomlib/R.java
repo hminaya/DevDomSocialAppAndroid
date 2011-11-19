@@ -31,12 +31,13 @@ public final class R {
         public static final int icon_community=0x7f02000a;
         public static final int icon_empleos=0x7f02000b;
         public static final int icon_news=0x7f02000c;
-        public static final int icon_tutorial=0x7f02000d;
-        public static final int loading_develop=0x7f02000e;
-        public static final int logo_horizontal=0x7f02000f;
-        public static final int logo_horizontal_small_transp=0x7f020010;
-        public static final int logo_horizontal_transp=0x7f020011;
-        public static final int verde=0x7f020012;
+        public static final int icon_podcast=0x7f02000d;
+        public static final int icon_tutorial=0x7f02000e;
+        public static final int loading_develop=0x7f02000f;
+        public static final int logo_horizontal=0x7f020010;
+        public static final int logo_horizontal_small_transp=0x7f020011;
+        public static final int logo_horizontal_transp=0x7f020012;
+        public static final int verde=0x7f020013;
     }
     public static final class id {
         public static final int Colaborador_1=0x7f070004;
@@ -69,9 +70,11 @@ public final class R {
         public static final int home=0x7f030006;
         public static final int home_row=0x7f030007;
         public static final int main=0x7f030008;
-        public static final int splash=0x7f030009;
-        public static final int tutorial_main=0x7f03000a;
-        public static final int tutorial_row=0x7f03000b;
+        public static final int podcast=0x7f030009;
+        public static final int podcast_row=0x7f03000a;
+        public static final int splash=0x7f03000b;
+        public static final int tutorial_main=0x7f03000c;
+        public static final int tutorial_row=0x7f03000d;
     }
     public static final class menu {
         public static final int menu=0x7f060000;

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:padding="5dp">
+
+    <ImageView 
+  	android:id="@+id/icon"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+	android:src="@drawable/icon_podcast"
+  	android:layout_marginRight="6dip"
+  	android:layout_marginLeft="5dip"
+  	android:layout_marginTop="12dip"
+  	/>
+
+<TextView 
+	android:id="@+id/label"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:layout_toRightOf="@id/icon"
+  	android:layout_marginTop="10dip"
+  	android:layout_alignParentRight="true"
+  	android:layout_below="@+id/header_image"
+  	android:text="Podcasts"
+  	android:textStyle="bold"
+  	android:textSize="9pt"
+  	android:textColor="@color/category_name_color"
+/>
+<TextView 
+	android:id="@+id/separator_text"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="Podcasts"
+	android:layout_below="@+id/icon"
+	android:layout_marginTop="15dp"
+	android:padding="5dp"
+  	android:textStyle="bold"
+	android:background="@color/separator_bg_color"
+	android:textColor="@color/separator_text_color"
+/>
+<ListView 
+	android:id="@android:id/list"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_below="@+id/separator_text"
+	
+/>
+    
+
+</RelativeLayout>

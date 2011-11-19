@@ -53,7 +53,7 @@ public class HomeActivity extends Activity {
 	                
 	                break;
 					
-				case 4:
+				case 6:
 	                
 					i.setClass(HomeActivity.this, ColaboradoresActivity.class);					
 	                startActivity(i);
@@ -65,6 +65,14 @@ public class HomeActivity extends Activity {
 	                startActivity(i);
 	                
 					break;
+					
+				case 4:
+					
+					i.setClass(HomeActivity.this, PodcastActivity.class);					
+	                startActivity(i);
+	                
+	                break;
+					
 				default:
 				
 					Toast.makeText(HomeActivity.this, R.string.ErrBeta, Toast.LENGTH_SHORT).show();
