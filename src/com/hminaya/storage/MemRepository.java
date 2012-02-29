@@ -63,7 +63,6 @@ public class MemRepository {
 		
 		opciones.add(new Option("Tutoriales", R.drawable.icon_tutorial));
 		opciones.add(new Option("Eventos", R.drawable.icon_calendar));
-		opciones.add(new Option("Noticias", R.drawable.icon_news));
 		opciones.add(new Option("Empleos", R.drawable.icon_empleos));
 		opciones.add(new Option("Podcasts", R.drawable.icon_podcast));
 		opciones.add(new Option("Comunidades", R.drawable.icon_community));
