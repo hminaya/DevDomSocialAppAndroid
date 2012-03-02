@@ -6,18 +6,19 @@ import com.hminaya.models.Option;
 import com.hminaya.storage.OptionRepository;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -81,9 +82,8 @@ public class HomeActivity extends Activity {
 					break;
 
 				case 2:
-
-					ShowExitConfirmation();
-
+					Toast.makeText(HomeActivity.this, "empleos", Toast.LENGTH_LONG)
+							.show();
 					break;
 
 				default:
@@ -96,44 +96,60 @@ public class HomeActivity extends Activity {
 		});
 	}
 
-	public void ShowExitConfirmation() {
+	public void ShowInfoEmpleos() {
+		Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(
+				"com.hminaya.infoempleos");
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(
-				"Esta opci—n abre el mobile app de infoempleos.net, el cual no esta directamente relacionado con Developers Dominicanos, si no la tienes instalada te llevaremos al Android Market. Desea proceder?")
-				.setCancelable(false)
-				.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
+		if (isCallable("com.hminaya.infoempleos") == true) {
+			startActivity(LaunchIntent);
+		} else {
+			Intent intent = new Intent(Intent.ACTION_VIEW);
+			intent.setData(Uri
+					.parse("market://details?id=com.hminaya.infoempleos"));
+			startActivity(intent);
+		}
+	}
 
-						Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.hminaya.infoempleos");
-						
-						if(isCallable("com.hminaya.infoempleos") == true){
-							startActivity(LaunchIntent);
-						} else {
-							Intent intent = new Intent(Intent.ACTION_VIEW);
-							intent.setData(Uri.parse("market://details?id=com.hminaya.infoempleos"));
-							startActivity(intent);
-						}
-					}
-				})
-				.setNegativeButton("No", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						dialog.cancel();
-					}
-				});
-		AlertDialog alert = builder.create();
-
-		builder.show();
-
+	public void ShowVacantesRD() {
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+				Uri.parse("https://twitter.com/#!/vacantesrd"));
+		startActivity(browserIntent);
 	}
 
 	private boolean isCallable(String packInfo) {
-		try{
-		     ApplicationInfo info = getPackageManager().getApplicationInfo(packInfo, 0 );
-		     return true;
-		    } catch( PackageManager.NameNotFoundException e ){
-		     return false;
+		try {
+			ApplicationInfo info = getPackageManager().getApplicationInfo(
+					packInfo, 0);
+			return true;
+		} catch (PackageManager.NameNotFoundException e) {
+			return false;
 		}
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+
+		super.onCreateContextMenu(menu, v, menuInfo);
+		menu.setHeaderTitle("ÀCual?");
+		menu.add(0, 1, 0, "infoempleos.net");
+		menu.add(0, 2, 0, "@vacantesrd");
+
+	}
+
+	public boolean onContextItemSelected(MenuItem item) {
+
+		switch (item.getItemId()) {
+		case 1:
+			ShowInfoEmpleos();
+			return (true);
+		case 2:
+			ShowVacantesRD();
+			return (true);
+		}
+		return false;
 	}
 
 	public class ImageAdapter extends BaseAdapter {
@@ -171,10 +187,19 @@ public class HomeActivity extends Activity {
 				ImageView iv = (ImageView) myView.findViewById(R.id.icon);
 				iv.setImageResource(opciones.get(position).getImageResource());
 
+				if (position == 2) {
+					 myView.setOnClickListener(new OnClickListener(){
+						 public void LevantarMenu(){
+						 }
+
+						public void onClick(View v) {
+							v.showContextMenu();
+						}
+					 });
+					registerForContextMenu(myView);
+				}
 			}
-
 			return myView;
-
 		}
 	}
 

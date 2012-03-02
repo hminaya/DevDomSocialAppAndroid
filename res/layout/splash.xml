@@ -22,6 +22,7 @@
   android:id="@+id/ImgSplash"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
+  android:layout_centerInParent="true" 
   android:layout_marginTop="150dip"
   android:src="@drawable/logo_horizontal_transp"
   />
@@ -29,7 +30,7 @@
 		android:id="@+id/progressBar1" 
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content"
-		 android:layout_below="@+id/separator_text" 
+		 android:layout_below="@+id/ImgSplash" 
 		 android:layout_centerInParent="true" 
 		 android:layout_marginRight="106dp"
      />

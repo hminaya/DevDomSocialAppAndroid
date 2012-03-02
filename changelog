@@ -1,3 +1,8 @@
+- Beta v0.9.4 --
+* Se agrego la opci—n de @vacantesrd en el tab de empleos
+* Se centralizo el logo/progressbar en el splash
+* Se cambio el android:minSdkVersion en el AndroidManifest.xml
+
 - Beta v0.9.3 --
 * Se cambio el tama–o del icon para hacer pruebas con el SDK de BB
 * Se habilito la opci—n de Empleos, haciendo link al app de infoempleos, luego vamos a colocar otras opciones
